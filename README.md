@@ -72,3 +72,9 @@ The names of what **late** exports are chosen to be explicit where it matters, a
 the way of the vissuals of a declaration. In particular, ``__()`` was chose to intefere the least possible with reading a function declaration (``late()`` is another name for it).
 
 At any rate, **late** is so simple and so small that you can apply any changes you like and use it as another part of your code instead of installing it as a library.
+
+
+## License
+
+**late** is under the  _GNU GENERAL PUBLIC LICENSE Version 3_, as reades in the
+[LICENSE)(LICENSE) file.
