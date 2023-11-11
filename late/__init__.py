@@ -19,8 +19,7 @@ def __(o: _T | Iterator[_V]) -> _T | _V:
     if isinstance(o, int | float | str | bool | bytes | bytearray | frozenset):
         return o  # type: ignore
     else:
-        result: _T = _LateBound(actual=o)  # type: ignore
-        return result
+        return _LateBound(actual=o)  # type: ignore
 
 
 def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:
