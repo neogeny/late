@@ -22,8 +22,8 @@ What follows is not intuitive for newcomers to Python, but it's something that e
 [1, 1, 1]
 ```
 
-The behavior in Python is that the same ``[]`` initializer value is passed on every function
-invocation.
+The behavior in Python is that the same initializer value is passed on every function
+invocation, so using mutable values produces the above results.
 
 The coding pattern to work around the above is to use ``None`` as the initializer, and check for
 the parameter value at the start of the function code:
