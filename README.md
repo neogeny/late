@@ -46,7 +46,7 @@ the parameter value at the start of the function code:
 It's ugly, but it works.
 
 Now comes the other ugly part.  When using type annotations, the above function must be declared 
-in away so that type checkers do not complain about using ``None`` as the default value:
+in a way so that type checkers do not complain about using ``None`` as the default value:
 
 
 ```python
