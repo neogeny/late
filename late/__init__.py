@@ -1,7 +1,7 @@
 import copy
 import functools
 import inspect
-from typing import Any, NamedTuple, TypeVar
+from typing import Any, Callable, NamedTuple, TypeVar
 
 
 __all__ = ['latebinding', 'late', '__']
@@ -24,16 +24,18 @@ def late(o: _T) -> _T:
 __ = late
 
 
+def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:
+    return {
+        name: copy.copy(param.default.actual)
+        for name, param in inspect.signature(func).parameters.items()
+        if name not in kwargs and isinstance(param.default, _LateBound)
+    }
+
+
 def latebinding(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
-        lateargs = {
-            name: copy.copy(param.default.actual)
-            for name, param in inspect.signature(func).parameters.items()
-            if name not in kwargs and isinstance(param.default, _LateBound)
-        }
-        kwargs.update(lateargs)
-
+        kwargs.update(_lateargs(func, **kwargs))
         return func(*args, **kwargs)
 
     return wrapper
