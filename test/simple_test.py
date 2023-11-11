@@ -18,9 +18,8 @@ def test_with_list():
 
 def test_immutable():
     @latebinding
-    def f(x: list[Any] = __(frozenset()), y: set = __({})) -> list[Any]:
-        x.append(1)
-        return x
+    def f(x: frozenset[Any] = __(frozenset()), y: set = __(set())):
+        return
 
     param = inspect.signature(f).parameters['x']
     assert type(param.default) is frozenset

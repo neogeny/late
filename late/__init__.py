@@ -16,9 +16,10 @@ class _LateBound(NamedTuple):
 
 def late(o: _T) -> _T:
     if isinstance(o, int | float | str | bool | bytes | bytearray | frozenset):
-        return o
+        return o  # type: ignore
     else:
-        return _LateBound(actual=o)  # type: _T
+        result: _T = _LateBound(actual=o)  # type: ignore
+        return result
 
 
 __ = late
@@ -36,6 +37,7 @@ def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:
 def latebinding(target):
     if type(target) is type:
         return _latebindclass(target)
+
     @functools.wraps(target)
     def wrapper(*args, **kwargs):
         kwargs = _lateargs(target, **kwargs)
