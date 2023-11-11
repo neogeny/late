@@ -1,10 +1,10 @@
-# late
+# Late
 Late binding for Python default arguments
 
 
 ## What is it?
 
-**late** provides decorators and functions to work around the issues that early binding of
+**Late** provides decorators and functions to work around the issues that early binding of
 default values produces in Python.
 
 This is not intuitive for newcomers to Python, but it's something that everyone learns quickly:
@@ -53,7 +53,7 @@ Now comes the orther ugly part.  When using type annotations, the above function
 ```
 
 
-**late** provides a way to solve the above ugliness with some decorator magic. This is how the new code would look with some magic:
+**Late** provides a way to solve the above ugliness with some decorator magic. This is how the new code would look with some magic:
 
 ```python
 from late import latebinding, __
@@ -68,13 +68,13 @@ def f(x: list[Any] = __([])) -> list[Any]:
 
 ## About name choice
 
-The names of what **late** exports are chosen to be explicit where it matters, and to not get in
+The names of what **Late** exports are chosen to be explicit where it matters, and to not get in
 the way of the vissuals of a declaration. In particular, ``__()`` was chose to intefere the least possible with reading a function declaration (``late()`` is another name for it).
 
-At any rate, **late** is so simple and so small that you can apply any changes you like and use it as another part of your code instead of installing it as a library.
+At any rate, **Late** is so simple and so small that you can apply any changes you like and use it as another part of your code instead of installing it as a library.
 
 
 ## License
 
-**late** is under the  _GNU GENERAL PUBLIC LICENSE Version 3_, as reades in the
+**Late** is under the  _GNU GENERAL PUBLIC LICENSE Version 3_, as reades in the
 [LICENSE)(LICENSE) file.
