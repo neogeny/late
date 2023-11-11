@@ -98,6 +98,35 @@ assert d.x is not c.x
 ```
 
 
+## Working with generators
+
+**Late** allows passing a generator as a default argument value, 
+and it will provide the next value on each function call. The usefulness of
+this feature is unknown, but it's something that came up during the discussions
+about default arguments, so **Late** implements it.
+
+
+```python
+    def fib() -> Iterator[int]:
+        x, y = 0, 1
+        while True:
+            yield x
+            x, y = y, x + y
+
+
+    @latebinding
+    def f(x: int = __(fib())) -> int:
+        return x
+
+    assert f() == 0
+    assert f() == 1
+    assert f() == 1
+    assert f() == 2
+    assert f() == 3
+    assert f() == 5
+```
+
+
 ## About name choice
 
 The names of what **Late** exports are chosen to be explicit where it matters, and to not get in
