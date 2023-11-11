@@ -1,0 +1,37 @@
+[build-system]
+requires = ['setuptools>=46.4', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'Late'
+dynamic = ['version']
+authors = [
+    {name = 'Juancarlo Añez', email = 'apalala@gmail.com'},
+]
+description = 'Late allows for late binding of default arguments'
+readme = 'README.md'
+requires-python = '>=3.11'
+keywords = []
+license = {file = 'LICENSE'}
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Development Status :: 5 - Production/Stable',
+    'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+    'Natural Language :: English',
+    'Intended Audience :: Developers',
+    'Environment :: Console',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Topic :: Software Development :: Libraries',
+]
+dependencies = []
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.dynamic]
+version = {attr = 'late._version.__version__'}
+
+[tool.setuptools.packages.find]
+include = ['late*', 'test*']
