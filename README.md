@@ -137,6 +137,12 @@ seldom used in Python code).
 At any rate, **Late** is so simple and so small that you can apply any changes you like and use it as another part of your code instead of installing it as a library.
 
 
+## Installation
+
+```bash
+$ pip install Late
+```
+
 ## License
 
 **Late** is under the  _GNU GENERAL PUBLIC LICENSE Version 3_, as reads in the
