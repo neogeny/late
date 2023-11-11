@@ -102,7 +102,8 @@ assert d.x is not c.x
 
 The names of what **Late** exports are chosen to be explicit where it matters, and to not get in
 the way of the visuals of a declaration. In particular, ``__()`` was chosen to interfere the least 
-possible with reading a function declaration (``late()`` is another name for it).
+possible with reading a function declaration (``late()`` is another name for it, and ``__`` is 
+seldom used in Python code).
 
 At any rate, **Late** is so simple and so small that you can apply any changes you like and use it as another part of your code instead of installing it as a library.
 
