@@ -2,6 +2,7 @@
 ![version](https://img.shields.io/pypi/pyversions/late.svg)
 ![fury](https://badge.fury.io/py/Late.svg)
 ![downloada](https://img.shields.io/pypi/dm/Late.svg)
+![actions](https://github.com/neogeny/Late/workflows/tests/badge.svg)
 
 # Late
 Late binding for Python default arguments
