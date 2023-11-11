@@ -25,17 +25,32 @@ __ = late
 
 
 def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:
-    return {
+    lateargs = {
         name: copy.copy(param.default.actual)
         for name, param in inspect.signature(func).parameters.items()
         if name not in kwargs and isinstance(param.default, _LateBound)
     }
+    return {**kwargs, **lateargs}
 
 
-def latebinding(func):
-    @functools.wraps(func)
+def latebinding(target):
+    @functools.wraps(target)
     def wrapper(*args, **kwargs):
-        kwargs.update(_lateargs(func, **kwargs))
-        return func(*args, **kwargs)
+        kwargs = _lateargs(target, **kwargs)
+        return target(*args, **kwargs)
 
-    return wrapper
+    if type(target) is type:
+        return _latebindclass(target)
+    else:
+        return wrapper
+
+
+def _latebindclass(cls):
+    old_init = cls.__init__
+
+    def new_init(self, *args, **kwargs):
+        kwargs = _lateargs(old_init, **kwargs)
+        old_init(self, *args, **kwargs)
+
+    cls.__init__ = new_init
+    return cls
