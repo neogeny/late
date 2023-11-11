@@ -73,6 +73,31 @@ assert f() == [1]
 ```
 
 
+## Working with classes
+
+**Late** also works with classes and `dataclass`. The ``@latebinding`` decorator 
+must be the outer one:
+
+```python
+@latebinding
+@dataclass
+class C:
+    x: list[Any] = __([])  # noqa
+
+c = C()
+assert c.x == []
+
+d = C()
+assert d.x == []
+c.x = [1]
+assert c.x == [1]
+assert d.x == []
+
+assert d.x is not c.x
+
+```
+
+
 ## About name choice
 
 The names of what **Late** exports are chosen to be explicit where it matters, and to not get in
