@@ -15,11 +15,14 @@ class _LateBound(NamedTuple):
     actual: Any
 
 
-def __(o: _T | Iterator[_V]) -> _T | _V:
+def late(o: _T | Iterator[_V]) -> _T | _V:
     if isinstance(o, int | float | str | bool | bytes | bytearray | frozenset):
         return o  # type: ignore
     else:
         return _LateBound(actual=o)  # type: ignore
+
+
+__ = late
 
 
 def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:
