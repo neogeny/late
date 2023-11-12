@@ -152,6 +152,10 @@ def get_session(uniqueid: int | None = None) -> Session:
 Using **Late**, the declaration can be:
 
 ```python
+def unique_id_generator() -> Iterator[int]:
+    while True:
+        yield make_unique_id()
+        
 def get_session(uniqueid: int = __(unique_id_generator())) -> Session:
 ```
 
