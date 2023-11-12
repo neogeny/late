@@ -2,7 +2,7 @@ test: lint pytest mypy
 
 
 lint:
-	ruff late test
+	ruff --preview late test
 
 pytest:
 	pytest -v

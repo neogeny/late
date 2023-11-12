@@ -1,8 +1,8 @@
 import copy
 import functools
 import inspect
-from typing import Any, Callable, Iterator, NamedTuple, TypeVar
-
+from collections.abc import Callable, Iterator
+from typing import Any, NamedTuple, TypeVar
 
 __all__ = ['latebinding', 'late', '__']
 

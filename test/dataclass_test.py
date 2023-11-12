@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Any
 
-from late import latebinding, __
+from late import __, latebinding
 
 
 def test_dataclass():
@@ -9,7 +9,7 @@ def test_dataclass():
     @latebinding
     @dataclass
     class C:
-        x: list[Any] = __([])  # noqa
+        x: list[Any] = __([])
 
     c = C()
     assert c.x == []

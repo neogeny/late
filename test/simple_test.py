@@ -1,7 +1,7 @@
 import inspect
 from typing import Any
 
-from late import latebinding, __, _LateBound
+from late import __, _LateBound, latebinding
 
 
 def test_with_list():

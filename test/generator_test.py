@@ -1,5 +1,6 @@
-from typing import Iterator
-from late import latebinding, __
+from collections.abc import Iterator
+
+from late import __, latebinding
 
 
 def test_generator():
