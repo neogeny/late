@@ -187,7 +187,7 @@ At any rate, **Late** is so simple and so small that you can apply any changes y
 
 ### How does it work?
 
-For values of immutable types, `__()` will return the same value. For all other types `__()` 
+For values of immutable types, ``__()`` will return the same value. For all other types ``__()`` 
 will wrap the value in a special ``namedtuple(actual=value)``. At function invocation time, this it what happens:
 
 * if the argument name is already in ``kwargs``, nothing is done
@@ -195,6 +195,12 @@ will wrap the value in a special ``namedtuple(actual=value)``. At function invoc
 * if the wrapped value is a function, then ``actual()`` is used
 * in all other cases ``copy.deepcopy(actual)`` is used
 
+For convenient type checking, ``__()`` is declared so its type will be the desired one depending
+on the argument:
+
+```python
+def late(o: _T | Iterator[_V] | Callable[[], _R]) -> _T | _V | _R:
+```
 
 ## Installation
 
