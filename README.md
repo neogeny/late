@@ -62,11 +62,15 @@ It's ugly, but it works.
 Now comes the other ugly part.  When using type annotations, the above function must be declared 
 in a way so that type checkers do not complain about using ``None`` as the default value:
 
-
 ```python
 >>> def f(x: list[Any] | None = None) -> list[Any]:
 ```
 
+Another problem with the above declaration is that calling ``f(None)`` passes type checking, 
+when that's probably not the preferred situation.
+
+
+## A solution
 
 **Late** provides a way to solve the above ugliness with some decorator magic. This is how the code 
 looks with some of that magic:
