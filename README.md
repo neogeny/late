@@ -146,7 +146,7 @@ will generate one if none is provided. Without **Late** the declaration would be
 ```python
 def get_session(uniqueid: int | None = None) -> Session:
     if uniqueid is None:
-        uniqueid = ...
+        uniqueid = make_unique_id()
 ```
 
 Using **Late**, the declaration can be:
