@@ -23,7 +23,7 @@ default argument values produces in Python.
 
 What follows is not intuitive for newcomers to Python, but it's something that everyone learns quickly:
 
-```python-repl
+```python
 >>> def f(x=[]):
 ...     x.append(1)
 ...     return x
@@ -42,7 +42,7 @@ invocation, so using mutable values produces the above results.
 The coding pattern to work around the above is to use ``None`` as the initializer, and check for
 the parameter value at the start of the function code:
 
-```python-repl
+```python
 >>> def f(x=None):
 ...     if x is None:
 ...         x = []
