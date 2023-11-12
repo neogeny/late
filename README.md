@@ -216,5 +216,4 @@ $ pip install Late
 
 ## License
 
-**Late** is licensed under the  _GNU LESSER GENERAL PUBLIC LICENSE Version 3_, as reads in the
-[LICENSE](LICENSE) file.
+**Late** is licensed as reads in the [LICENSE](LICENSE) file.
