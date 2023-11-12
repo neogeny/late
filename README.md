@@ -185,6 +185,17 @@ seldom used in Python code).
 At any rate, **Late** is so simple and so small that you can apply any changes you like and use it as another part of your code instead of installing it as a library.
 
 
+### How dows it work?
+
+For values of immutable types, `__()` will return the same value. For all other types `__()` 
+will wrap the value in a special ``namedtuple(actual=value)``. At function invocation time, this it what happens:
+
+* if the argument name is already in ``kwargs``, nothing is done
+* if the wrapped value is a generator, then ``next(actual)`` is used
+* if the wrapped value is a function, then ``actual()`` is used
+* in all other cases ``copy.deepcopy(actual)`` is used
+
+
 ## Installation
 
 ```bash
