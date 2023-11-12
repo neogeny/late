@@ -7,6 +7,7 @@ from typing import Any, Callable, Iterator, NamedTuple, TypeVar
 __all__ = ['latebinding', 'late', '__']
 
 
+_R = TypeVar('_R')
 _T = TypeVar('_T')
 _V = TypeVar('_V')
 
@@ -15,7 +16,7 @@ class _LateBound(NamedTuple):
     actual: Any
 
 
-def late(o: _T | Iterator[_V]) -> _T | _V:
+def late(o: _T | Iterator[_V] | Callable[[], _R]) -> _T | _V | _R:
     if isinstance(o, int | float | str | bool | bytes | bytearray | frozenset):
         return o  # type: ignore
 

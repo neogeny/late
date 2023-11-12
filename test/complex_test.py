@@ -23,7 +23,7 @@ def test_function():
         return t
 
     @latebinding
-    def f(x: int = __(a)) -> int:  # type: ignore
+    def f(x: int = __(a)) -> int:
         return 2 * x
 
     assert f() == 2
