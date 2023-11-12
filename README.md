@@ -91,7 +91,7 @@ assert f() == [1]
 ```
 
 
-## Working with classes
+### Working with classes
 
 **Late** also works with classes and `dataclass`. The ``@latebinding`` decorator 
 must be the outer one:
@@ -116,7 +116,7 @@ assert d.x is not c.x
 ```
 
 
-## Working with generators
+### Working with generators
 
 **Late** allows passing a generator as a default argument value, 
 and it will provide the next value on each function call. The usefulness of
@@ -164,7 +164,7 @@ def get_session(uniqueid: int = __(unique_id_generator())) -> Session:
 ```
 
 
-## Working with functions
+### Working with functions
 
 **Late** also allows lat-binding functions, so the above example could be implemented using 
 a function instead of a generator:
@@ -175,7 +175,7 @@ def get_session(uniqueid: int = __(make_unique_id)) -> Session:
 
 The given function will be called once every time the ``uniqueid`` parameter is omitted.
 
-## About name choice
+### About name choice
 
 The names of what **Late** exports are chosen to be explicit where it matters, and to not get in
 the way of the visuals of a declaration. In particular, ``__()`` was chosen to interfere the least 
