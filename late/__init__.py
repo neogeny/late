@@ -18,8 +18,17 @@ class _LateBound(NamedTuple):
 def late(o: _T | Iterator[_V]) -> _T | _V:
     if isinstance(o, int | float | str | bool | bytes | bytearray | frozenset):
         return o  # type: ignore
+
+    actual: Any = None
+    if isinstance(o, list):
+        actual = [late(value) for value in o]
+    elif isinstance(o, dict):
+        actual = {name: late(value) for name, value in o.items()}
+    elif isinstance(o, set):
+        actual = {late(value) for value in o}
     else:
-        return _LateBound(actual=o)  # type: ignore
+        actual = o
+    return _LateBound(actual=actual)  # type: ignore
 
 
 __ = late
@@ -30,6 +39,16 @@ def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:
     def resolve_default(value):
         if inspect.isgenerator(value):
             return next(value)
+        if inspect.isfunction(value):
+            return value()
+        if isinstance(value, _LateBound):
+            return resolve_default(value.actual)
+        if isinstance(value, list):
+            return [resolve_default(x) for x in value]
+        if isinstance(value, dict):
+            return {name: resolve_default(x) for name, x in value.items()}
+        if isinstance(value, set):
+            return {resolve_default(x) for x in value}
         return copy.copy(value)
 
     lateargs = {
