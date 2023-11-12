@@ -140,6 +140,20 @@ about default arguments, so **Late** implements it.
     assert f() == 5
 ```
 
+This is a possible use for the generators feature. Imagine a function that requires a unique ID, and 
+will generate one if none is provided. Without **Late** the declaration would be:
+
+```python
+def get_session(uniqueid: int | None = None) -> Session:
+    if uniqueid is None:
+        uniqueid = ...
+```
+
+Using **Late**, the declaration can be:
+
+```python
+def get_session(uniqueid: int = __(gen_unique_id)) -> Session:
+```
 
 ## About name choice
 
