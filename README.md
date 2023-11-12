@@ -155,6 +155,18 @@ Using **Late**, the declaration can be:
 def get_session(uniqueid: int = __(gen_unique_id())) -> Session:
 ```
 
+
+## Working with functions
+
+**Late** also allows lat-binding functions, so the above example could be implemented using 
+a function instead of a generator:
+
+```python
+def get_session(uniqueid: int = __(gen_unique_id)) -> Session:
+```
+
+The given function will be called once every time the ``uniqueid`` parameter is omitted.
+
 ## About name choice
 
 The names of what **Late** exports are chosen to be explicit where it matters, and to not get in
