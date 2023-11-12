@@ -1,8 +1,16 @@
-![lincense](https://img.shields.io/github/license/neogeny/Late)
-![version](https://img.shields.io/pypi/pyversions/late.svg)
-![fury](https://badge.fury.io/py/Late.svg)
+[
+    ![lincense](https://img.shields.io/github/license/neogeny/Late)
+](https://www.gnu.org/licenses/lgpl-3.0.html)
+[
+    ![version](https://img.shields.io/pypi/pyversions/late.svg)
+](https://www.python.org/downloads/)
+[
+    ![fury](https://badge.fury.io/py/Late.svg)
+](https://pypi.org/project/Late/)
 ![downloada](https://img.shields.io/pypi/dm/Late.svg)
-[![tests](https://github.com/neogeny/late/actions/workflows/default.yml/badge.svg)](https://github.com/neogeny/late/actions/workflows/default.yml)
+[
+    ![tests](https://github.com/neogeny/late/actions/workflows/default.yml/badge.svg)
+](https://github.com/neogeny/late/actions/workflows/default.yml)
 
 # Late
 Late binding for Python default arguments
