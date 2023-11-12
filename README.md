@@ -152,7 +152,7 @@ def get_session(uniqueid: int | None = None) -> Session:
 Using **Late**, the declaration can be:
 
 ```python
-def get_session(uniqueid: int = __(gen_unique_id)) -> Session:
+def get_session(uniqueid: int = __(gen_unique_id())) -> Session:
 ```
 
 ## About name choice
