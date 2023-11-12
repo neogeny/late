@@ -116,9 +116,9 @@ assert d.x is not c.x
 ```
 
 
-### Working with generators
+### Working with iterators
 
-**Late** allows passing a generator as a default argument value, 
+**Late** allows passing an iterator as a default argument value, 
 and it will provide the next value on each function call. The usefulness of
 this feature is unknown, but it's something that came up during the discussions
 about default arguments, so **Late** implements it.
@@ -144,7 +144,7 @@ about default arguments, so **Late** implements it.
     assert f() == 5
 ```
 
-This is a possible use for the generators feature. Imagine a function that requires a unique ID, and 
+This is a possible use for the iterator feature. Imagine a function that requires a unique ID, and 
 will generate one if none is provided. Without **Late** the declaration would be:
 
 ```python
@@ -191,7 +191,7 @@ For values of immutable types, ``__()`` will return the same value. For all othe
 will wrap the value in a special ``namedtuple(actual=value)``. At function invocation time, this it what happens:
 
 * if the argument name is already in ``kwargs``, nothing is done
-* if the wrapped value is a generator, then ``next(actual)`` is used
+* if the wrapped value is an iterator, then ``next(actual)`` is used
 * if the wrapped value is a function, then ``actual()`` is used
 * in all other cases ``copy.deepcopy(actual)`` is used
 

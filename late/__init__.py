@@ -32,7 +32,7 @@ __ = late
 def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:
 
     def resolve_default(value):
-        if inspect.isgenerator(value):
+        if isinstance(value, Iterator):
             return next(value)
         if inspect.isfunction(value):
             return value()

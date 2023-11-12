@@ -1,7 +1,6 @@
-import inspect
 from typing import Any
 
-from late import latebinding, __, _LateBound
+from late import latebinding, __
 
 
 def test_recursion():

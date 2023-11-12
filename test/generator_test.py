@@ -1,5 +1,5 @@
 from typing import Iterator
-from late import latebinding, __, _LateBound
+from late import latebinding, __
 
 
 def test_generator():

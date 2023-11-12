@@ -1,4 +1,8 @@
-test: pytest mypy
+test: lint pytest mypy
+
+
+lint:
+	ruff late test
 
 pytest:
 	pytest -v
