@@ -40,7 +40,7 @@ The behavior in Python is that the same initializer value is passed on every fun
 invocation, so using mutable values produces the above results.
 
 The coding pattern to work around the above is to use ``None`` as the initializer, and check for
-the parameter value at the start of the function code:
+the argument value at the start of the function code:
 
 ```python
 >>> def f(x=None):
@@ -173,7 +173,7 @@ a function instead of a generator:
 def get_session(uniqueid: int = __(make_unique_id)) -> Session:
 ```
 
-The given function will be called once every time the ``uniqueid`` parameter is omitted.
+The given function will be called once every time the ``uniqueid`` argument is omitted.
 
 ### About name choice
 
