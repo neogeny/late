@@ -204,7 +204,7 @@ def late(o: _T | Iterator[_V] | Callable[[], _R]) -> _T | _V | _R:
 
 ### Why doesn't the Python interpreter solve this?
 
-Although the ugliness and inconvenience in the current situation has ben acknowledged 
+Although the ugliness and inconvenience in the current situation have ben acknowledged 
 and discussed for a very long time, there has never been an agreement about the usefulness,
 the semantics, nor the syntax for a solution. That way the _status quo_ has remained unchanged.
 
