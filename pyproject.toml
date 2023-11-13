@@ -26,6 +26,9 @@ classifiers = [
 ]
 dependencies = []
 
+[project.urls]
+"Homepage" = "https://github.com/neogeny/late"
+
 [tool.setuptools]
 include-package-data = false
 
