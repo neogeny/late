@@ -216,4 +216,5 @@ $ pip install Late
 
 ## License
 
-**Late** is licensed as reads in the [LICENSE](LICENSE) file.
+**Late** is licensed as reads in 
+[LICENSE](https://github.com/neogeny/late/blob/master/LICENSE).
