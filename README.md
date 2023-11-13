@@ -159,7 +159,8 @@ Using **Late**, the declaration can be:
 def unique_id_generator() -> Iterator[int]:
     while True:
         yield make_unique_id()
-        
+
+@latebinding
 def get_session(uniqueid: int = __(unique_id_generator())) -> Session:
 ```
 
@@ -170,6 +171,7 @@ def get_session(uniqueid: int = __(unique_id_generator())) -> Session:
 a function instead of a generator:
 
 ```python
+@latebinding
 def get_session(uniqueid: int = __(make_unique_id)) -> Session:
 ```
 
