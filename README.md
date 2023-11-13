@@ -166,7 +166,7 @@ def get_session(uniqueid: int = __(unique_id_generator())) -> Session:
 
 ### Working with functions
 
-**Late** also allows lat-binding functions, so the above example could be implemented using 
+**Late** also allows late-binding for functions, so the above example could be implemented using 
 a function instead of a generator:
 
 ```python
