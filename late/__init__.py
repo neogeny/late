@@ -46,7 +46,7 @@ def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:
     return {**kwargs, **lateargs}
 
 
-def latebinding(target):
+def latebinding(target: Callable | type) -> Callable | type:
     if type(target) is type:
         return _latebindclass(target)
 
@@ -58,13 +58,13 @@ def latebinding(target):
     return wrapper
 
 
-def _latebindclass(cls):
-    old_init = cls.__init__
+def _latebindclass(cls: type) -> type:
+    old_init = cls.__init__  # type: ignore[misc]
 
     @functools.wraps(old_init)
     def new_init(self, *args, **kwargs):
         kwargs = _lateargs(old_init, **kwargs)
         old_init(self, *args, **kwargs)
 
-    cls.__init__ = new_init
+    cls.__init__ = new_init  # type: ignore[misc]
     return cls
