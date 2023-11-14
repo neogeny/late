@@ -223,3 +223,14 @@ $ pip install Late
 
 **Late** is licensed as reads in 
 [LICENSE](https://github.com/neogeny/late/blob/master/LICENSE).
+
+
+## And now,... this!
+
+You can use ``包``, the Kanji for _"wrap"_, instead of ``__`` to late-bind
+an argument.
+
+```python
+@latebinding
+def f(x: list[Any] = 包([])) -> list[Any]:
+```

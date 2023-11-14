@@ -24,9 +24,7 @@ def late(o: _T | Iterator[_V] | Callable[[], _R]) -> _T | _V | _R:
 
 
 __ = late
-
-
-__ = late
+包 = late
 
 
 def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:

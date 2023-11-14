@@ -1,7 +1,7 @@
 import inspect
 from typing import Any
 
-from late import __, _LateBound, latebinding
+from late import __, _LateBound, latebinding, 包
 
 
 def test_with_list():
@@ -25,3 +25,13 @@ def test_immutable():
     assert type(param.default) is frozenset
     param = inspect.signature(f).parameters['y']
     assert type(param.default) is _LateBound
+
+
+def test_kanji():
+    @latebinding
+    def f(x: list[Any] = 包([])) -> list[Any]:
+        x.append(1)
+        return x
+
+    assert f() == [1]
+    assert f() == [1]
