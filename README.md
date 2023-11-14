@@ -225,7 +225,7 @@ $ pip install Late
 [LICENSE](https://github.com/neogeny/late/blob/master/LICENSE).
 
 
-## And now,... this!
+## And now... this!
 
 You can use ``包``, the Kanji for _"wrap"_, instead of ``__`` to late-bind
 an argument.
