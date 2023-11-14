@@ -212,7 +212,7 @@ The definition of [Late Binding](https://en.wikipedia.org/wiki/Late_binding) tha
 
 ### Why doesn't the Python interpreter solve this?
 
-Although the ugliness and inconvenience in the current situation have ben acknowledged 
+Although the ugliness and inconvenience in the current situation have been acknowledged 
 and discussed for a very long time, there has never been an agreement about the usefulness,
 the semantics, nor the syntax of a solution. That way the _status quo_ has remained unchanged.
 
