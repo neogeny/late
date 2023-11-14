@@ -12,13 +12,13 @@
     ![tests](https://github.com/neogeny/late/actions/workflows/default.yml/badge.svg)
 ](https://github.com/neogeny/late/actions/workflows/default.yml)
 
-# Late
+# 包 Late
 Late binding for Python default arguments
 
 
 ## What is it?
 
-**Late** provides decorators and functions to work around the issues that early binding of
+**包 Late** provides decorators and functions to work around the issues that early binding of
 default argument values produces in Python.
 
 What follows is not intuitive for newcomers to Python, but it's something that everyone learns quickly:
@@ -72,7 +72,7 @@ when that's probably not the preferred situation.
 
 ## A solution
 
-**Late** provides a way to solve the above ugliness with some decorator magic. This is how the code 
+**包 Late** provides a way to solve the above ugliness with some decorator magic. This is how the code 
 looks with some of that magic:
 
 ```python
@@ -93,7 +93,7 @@ assert f() == [1]
 
 ### Working with classes
 
-**Late** also works with classes and `dataclass`. The ``@latebinding`` decorator 
+**包 Late** also works with classes and `dataclass`. The ``@latebinding`` decorator 
 must be the outer one:
 
 ```python
@@ -118,10 +118,10 @@ assert d.x is not c.x
 
 ### Working with iterators
 
-**Late** allows passing an iterator as a default argument value, 
+**包 Late** allows passing an iterator as a default argument value, 
 and it will provide the next value on each function call. The usefulness of
 this feature is unknown, but it's something that came up during the discussions
-about default arguments, so **Late** implements it.
+about default arguments, so **包 Late** implements it.
 
 
 ```python
@@ -145,7 +145,7 @@ about default arguments, so **Late** implements it.
 ```
 
 This is a possible use for the iterator feature. Imagine a function that requires a unique ID, and 
-will generate one if none is provided. Without **Late** the declaration would be:
+will generate one if none is provided. Without **包 Late** the declaration would be:
 
 ```python
 def get_session(uniqueid: int | None = None) -> Session:
@@ -153,7 +153,7 @@ def get_session(uniqueid: int | None = None) -> Session:
         uniqueid = make_unique_id()
 ```
 
-Using **Late**, the declaration can be:
+Using **包 Late**, the declaration can be:
 
 ```python
 def unique_id_generator() -> Iterator[int]:
@@ -167,7 +167,7 @@ def get_session(uniqueid: int = __(unique_id_generator())) -> Session:
 
 ### Working with functions
 
-**Late** also allows late-binding for functions, so the above example could be implemented using 
+**包 Late** also allows late-binding for functions, so the above example could be implemented using 
 a function instead of a generator:
 
 ```python
@@ -179,12 +179,12 @@ The given function will be called once every time the ``uniqueid`` argument is o
 
 ### About name choice
 
-The names of what **Late** exports are chosen to be explicit where it matters, and to not get in
+The names of what **包 Late** exports are chosen to be explicit where it matters, and to not get in
 the way of the visuals of a declaration. In particular, ``__()`` was chosen to interfere the least 
 possible with reading a function declaration (``late()`` is another name for it, and ``__`` is 
 seldom used in Python code).
 
-At any rate, **Late** is so simple and so small that you can apply any changes you like and use it as another part of your code instead of installing it as a library.
+At any rate, **包 Late** is so simple and so small that you can apply any changes you like and use it as another part of your code instead of installing it as a library.
 
 
 ### How does it work?
@@ -221,7 +221,7 @@ $ pip install Late
 
 ## License
 
-**Late** is licensed as reads in 
+**包 Late** is licensed as reads in 
 [LICENSE](https://github.com/neogeny/late/blob/master/LICENSE).
 
 
