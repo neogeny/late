@@ -204,6 +204,12 @@ on the argument:
 def late(o: _T | Iterator[_V] | Callable[[], _R]) -> _T | _V | _R:
 ```
 
+
+### Late binding?
+
+The definition of [Late Binding](https://en.wikipedia.org/wiki/Late_binding) that 
+**包 Late** uses is that of what is resolved at runtime instead of at compile time.
+
 ### Why doesn't the Python interpreter solve this?
 
 Although the ugliness and inconvenience in the current situation have ben acknowledged 
