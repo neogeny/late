@@ -63,7 +63,7 @@ Now comes the other ugly part.  When using type annotations, the above function 
 in a way so that type checkers do not complain about using ``None`` as the default value:
 
 ```python
->>> def f(x: list[Any] | None = None) -> list[Any]:
+def f(x: list[Any] | None = None) -> list[Any]:
 ```
 
 Another problem with the above declaration is that calling ``f(None)`` passes type checking, 
