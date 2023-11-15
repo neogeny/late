@@ -5,7 +5,7 @@ from late import __, latebinding
 
 def test_recursion():
     @latebinding
-    def f(x: list[list[Any]] = __([[]])) -> list[list[Any]]:
+    def f(x: list[list[Any]] = [[]]) -> list[list[Any]]:
         x[0].append(1)
         return x
 

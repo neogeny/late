@@ -90,10 +90,20 @@ assert f() == [1]
 
 ```
 
+For constructors for basic structured types, the ``__()`` call may be omitted:
+
+```python
+@latebinding
+def f(x: list[Any] = []) -> list[Any]:
+```
+
+@latebinding
+def f(x: list[Any] = __([])) -> list[Any]:
+
 
 ### Working with classes
 
-**包 Late** also works with classes and `dataclass`. The ``@latebinding`` decorator 
+**包 Late** also works with classes and ``dataclass``. The ``@latebinding`` decorator 
 must be the outer one:
 
 ```python

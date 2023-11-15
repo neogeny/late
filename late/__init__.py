@@ -4,7 +4,7 @@ import inspect
 from collections.abc import Callable, Iterator
 from typing import Any, NamedTuple, TypeVar
 
-__all__ = ['latebinding', 'late', '__']
+__all__ = ['latebinding']
 
 
 _R = TypeVar('_R')
@@ -27,19 +27,24 @@ __ = late
 包 = late
 
 
+def _resolve_value(value):
+    if isinstance(value, _LateBound):
+        value = value.actual
+    if isinstance(value, int | float | str | bytes | bool | tuple | bytearray | frozenset):
+        return value
+    if isinstance(value, Iterator):
+        return next(value)
+    if inspect.isfunction(value):
+        return value()
+    return copy.deepcopy(value)
+
+
 def _lateargs(func: Callable, **kwargs) -> dict[str, Any]:
 
-    def resolve_default(value):
-        if isinstance(value, Iterator):
-            return next(value)
-        if inspect.isfunction(value):
-            return value()
-        return copy.deepcopy(value)
-
     lateargs = {
-        name: resolve_default(param.default.actual)
+        name: _resolve_value(param.default)
         for name, param in inspect.signature(func).parameters.items()
-        if name not in kwargs and isinstance(param.default, _LateBound)
+        if name not in kwargs and param.default != inspect._empty
     }
     return {**kwargs, **lateargs}
 
