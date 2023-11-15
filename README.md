@@ -97,10 +97,6 @@ For constructors for basic structured types, the ``__()`` call may be omitted:
 def f(x: list[Any] = []) -> list[Any]:
 ```
 
-@latebinding
-def f(x: list[Any] = __([])) -> list[Any]:
-
-
 ### Working with classes
 
 **包 Late** also works with classes and ``dataclass``. The ``@latebinding`` decorator 
