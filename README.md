@@ -12,7 +12,7 @@
     ![tests](https://github.com/neogeny/late/actions/workflows/default.yml/badge.svg)
 ](https://github.com/neogeny/late/actions/workflows/default.yml)
 
-# 包 Late
+# 包 Late 1.3.0b1
 Late binding for Python default arguments
 
 
