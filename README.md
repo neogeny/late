@@ -66,7 +66,13 @@ in a way so that type checkers do not complain about using ``None`` as the defau
 def f(x: list[Any] | None = None) -> list[Any]:
 ```
 
-Another problem with the above declaration is that calling ``f(None)`` passes type checking, 
+or:
+
+```python
+def f(x: Optional[list[Any]] = None) -> list[Any]:
+```
+
+Another problem with the above declarations is that calling ``f(None)`` passes type checking, 
 when that's probably not the preferred situation.
 
 
