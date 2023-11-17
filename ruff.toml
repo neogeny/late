@@ -10,7 +10,7 @@ select = [
     # 'ERA', # commented out code
 ]
 ignore = [
-    'B008',
+    'B006', 'B008',
     'E501', 'E741', 'E402',
     'S101', 'S102', 'S105', 'S301', 'S311',
     'C408',
@@ -23,7 +23,7 @@ ignore = [
     'PLR0913', 'PLR2004', 'PLR0904', 'PLR0915',
     'PLW0603', 'PLW2901', 'PLW3201',
     'RET505',
-    'RUF009',
+    'RUF008', 'RUF009',
 ]
 exclude = []
 
