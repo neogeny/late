@@ -17,7 +17,7 @@ class _LateBound(NamedTuple):
 
 
 def late(o: _T | Iterator[_V] | Callable[[], _R]) -> _T | _V | _R:
-    if o is None or isinstance(o, int | float | bool | str | bytes | tuple | frozenset):
+    if isinstance(o, int | float | bool | str | bytes):
         return o  # type: ignore
 
     return _LateBound(actual=o)  # type: ignore
@@ -30,7 +30,7 @@ __ = late
 def _resolve_value(value):
     if isinstance(value, _LateBound):
         value = value.actual
-    if isinstance(value, int | float | str | bytes | bool | tuple | bytearray | frozenset):
+    if isinstance(value, int | float | bool | str | bytes):
         return value
     if isinstance(value, Iterator):
         return next(value)
